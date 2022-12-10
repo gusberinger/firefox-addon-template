@@ -4,7 +4,8 @@
 	"description": "A minimal example of how to use npm modules from within a WebExtension.",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "webpack"
+		"build": "webpack",
+		"watch": "webpack --watch"
 	},
 	"license": "MPL-2.0",
 	"devDependencies": {
