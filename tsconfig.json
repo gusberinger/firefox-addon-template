@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "es2022",
-		"typeRoots": ["node_modules/@types", "node_modules/web-ext-types"]
+		"typeRoots": ["node_modules/@types", "node_modules/web-ext-types"],
+		"strict": true
 	}
 }
