@@ -1,4 +1,7 @@
 const path = require("path")
+const TerserPlugin = require("terser-webpack-plugin")
+
+const PROD = JSON.parse(process.env.NODE_ENV == "production")
 
 module.exports = {
 	entry: {
@@ -10,4 +13,8 @@ module.exports = {
 		filename: "[name]/index.js",
 	},
 	mode: "none",
+	optimization: {
+		minimize: PROD,
+		minimizer: [new TerserPlugin({ parallel: true })],
+	},
 }
