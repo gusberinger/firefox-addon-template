@@ -1,4 +1,4 @@
-const leftPad = require("left-pad")
+import leftPad from "left-pad"
 
 const resultNode = document.getElementById("result")
 const textNode = document.getElementById("text")
