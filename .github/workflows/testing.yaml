@@ -18,7 +18,7 @@ jobs:
         run: npm run build
 
       - name: Lint Extension Source
-        run: npx web-ext lint -s addon
+        run: npx web-ext lint -s dist
 
       - name: Build Extension
-        run: npx web-ext build -s addon
+        run: npx web-ext build -s dist
