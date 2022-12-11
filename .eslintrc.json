@@ -8,5 +8,6 @@
 		"amd": true,
 		"webextensions": true
 	},
+	"plugins": ["@typescript-eslint"],
 	"ignorePatterns": ["webpack.config.js"]
 }
