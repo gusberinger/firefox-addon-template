@@ -12,6 +12,18 @@ module.exports = {
 		path: path.resolve(__dirname, "addon"),
 		filename: "[name]/index.js",
 	},
+	resolve: {
+		extensions: [".ts"],
+	},
+	module: {
+		rules: [
+			{
+				test: /\.tsx?$/,
+				use: "ts-loader",
+				exclude: /node_modules/,
+			},
+		],
+	},
 	mode: "none",
 	optimization: {
 		minimize: PROD,
