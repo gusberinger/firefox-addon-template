@@ -22,10 +22,10 @@ const _module = {
 }
 
 module.exports = {
-	entry: [path.resolve(__dirname, "src", "background", "background.ts")],
+	entry: [path.resolve(__dirname, "src", "content", "borderify.ts")],
 	output: {
 		path: path.resolve(__dirname, "dist"),
-		filename: path.join("background", "background.js"),
+		filename: path.join("content", "borderify.js"),
 	},
 	resolve: _resolve,
 	module: _module,
