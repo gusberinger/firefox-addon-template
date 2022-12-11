@@ -1,0 +1,24 @@
+on:
+  pull_request:
+    branches:
+      - "main"
+  push:
+    branches:
+    - "main"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install modules
+        run: npm install
+
+      - name: Run Webpack
+        run: npm run build
+
+      - name: Lint Extension Source
+        run: npx web-ext lint -s addon
+
+      - name: Build Extension
+        run: npx web-ext build -s addon
