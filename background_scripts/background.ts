@@ -1,24 +1,25 @@
-const leftPad = require("left-pad")
+import leftPad from "../utils/leftPad"
 
+// ? needed to satisfy object type
 interface Message {
 	text?: string
 	with?: string
 	amount?: number
 }
 
-const callback = async (
-	myMessage: Message,
-	_: browser.runtime.MessageSender,
-	mySendResponse: (resut: object) => boolean
-) => {
-	const result = await leftPad(
-		myMessage.text,
-		myMessage.amount,
-		myMessage.with
-	)
-	mySendResponse(result)
-}
-
-browser.runtime.onMessage.addListener(callback)
+browser.runtime.onMessage.addListener(
+	async (
+		myMessage: Message,
+		_: browser.runtime.MessageSender,
+		mySendResponse: (resut: object) => boolean
+	) => {
+		const result = leftPad(
+			myMessage.text!,
+			myMessage.amount!,
+			myMessage.with!
+		)
+		mySendResponse({ result })
+	}
+)
 
 export {}
