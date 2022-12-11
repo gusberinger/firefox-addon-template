@@ -1,7 +1,13 @@
 const leftPad = require("left-pad")
 
+interface Message {
+	text?: string
+	with?: string
+	amount?: number
+}
+
 const callback = async (
-	myMessage: any,
+	myMessage: Message,
 	_: browser.runtime.MessageSender,
 	mySendResponse: (resut: object) => boolean
 ) => {
