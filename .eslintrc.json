@@ -7,5 +7,6 @@
 		"es6": true,
 		"amd": true,
 		"webextensions": true
-	}
+	},
+	"ignorePatterns": ["webpack.config.js"]
 }
