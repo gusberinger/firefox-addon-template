@@ -1,8 +1,18 @@
 const leftPad = require("left-pad")
 
-browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-	const result = leftPad(message.text, message.amount, message.with)
-	sendResponse(result)
-})
+const callback = async (
+	myMessage: any,
+	_: browser.runtime.MessageSender,
+	mySendResponse: (resut: object) => boolean
+) => {
+	const result = await leftPad(
+		myMessage.text,
+		myMessage.amount,
+		myMessage.with
+	)
+	mySendResponse(result)
+}
+
+browser.runtime.onMessage.addListener(callback)
 
 export {}
