@@ -1,26 +1,19 @@
-const leftPad = require("left-pad")
-
-const textNode = document.getElementById("text")
-const amountNode = document.getElementById("amount")
-const resultNode = document.getElementById("result")
-const withNode = document.getElementById("with")
-const bgPad = document.getElementById("pad-bg")
-
-if (!(textNode instanceof HTMLInputElement)) throw new Error("Not input")
-if (!(amountNode instanceof HTMLInputElement)) throw new Error("Not input")
-if (!(resultNode instanceof HTMLInputElement)) throw new Error("Not input")
-if (!(withNode instanceof HTMLInputElement)) throw new Error("Not input")
-if (!(bgPad instanceof HTMLButtonElement)) throw new Error("Not button")
+const textNode = document.getElementById("text") as HTMLInputElement
+const amountNode = document.getElementById("amount") as HTMLInputElement
+const resultNode = document.getElementById("result") as HTMLInputElement
+const withNode = document.getElementById("with") as HTMLInputElement
+const bgPad = document.getElementById("pad-bg") as HTMLButtonElement
 
 bgPad.addEventListener("click", (e) => {
-	let sendingMessage = browser.runtime.sendMessage({
-		text: textNode.value,
-		amount: amountNode.valueAsNumber,
-		with: withNode.value,
-	})
-	sendingMessage.then((result) => {
-		resultNode.value = result
-	})
+	browser.runtime
+		.sendMessage({
+			text: textNode.value,
+			amount: amountNode.valueAsNumber,
+			with: withNode.value,
+		})
+		.then((result) => {
+			resultNode.value = result
+		})
 })
 
 export {}
